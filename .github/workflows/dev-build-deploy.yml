@@ -30,4 +30,4 @@ jobs:
       - name: Deploy to S3 bucket
         run: aws s3 sync ./build/ s3://deployed-reactapp
       - name: Update to Cloudfront
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --invalidation-batch /*
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --path "/*"
